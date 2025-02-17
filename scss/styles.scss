@@ -1,0 +1,224 @@
+$header-color: #134668;
+$secondary-color: #3D6F8F;
+$btn-color: #134668;
+$body-bg: #f9f9f9;
+$shadow: 0 0.1rem 0.5rem rgb(175, 175, 175);
+$card-bg: #f9f9f9;
+$card-border: #ddd;
+$padding: 10px;
+$main_padding: 20px;
+$font-lora: "Lora", serif;
+$font-roboto: "Roboto", sans-serif;
+$error-color: #ff4d4d;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-roboto;
+  background-color: $body-bg;
+  font-size: 62.5%;
+}
+
+header {
+  background-color: $header-color;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 3rem 0;
+  box-shadow: $shadow;
+
+  h1 {
+    font-family: $font-lora;
+    font-size: 2.5rem;
+    color: #ccc;
+  }
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: $padding;
+  position: relative;
+
+  .btn_add {
+    outline: 1px solid #134668;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    color: $btn-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid $btn-color;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      outline: none;
+      background-color: $btn-color;
+      color: white;
+    }
+  }
+
+  .add_book_dialog {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $secondary-color;
+    color: #ddd;
+
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0.2);
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+    }
+
+    #add_book_dialog_form {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h2 {
+        text-align: center;
+        font-family: 'Lora', serif;
+      }
+
+      .form_box {
+        font-size: 1em;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:not(.read_status) {
+          flex-direction: column;
+        }
+
+        &.read_status {
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          label {
+            margin-right: 10px;
+          }
+        }
+
+        label {
+          margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        .btn_submit {
+          align-self: center;
+          padding: 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .book-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    grid-gap: 50px;
+    width: max(1150px, 80vw);
+
+    .book_card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: 500;
+      width: max(350px, 60%);
+      border-radius: 10px;
+      background-color: $secondary-color;
+      color: #ddd;
+      box-shadow: $shadow;
+
+      .book_title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .book_author {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .book_pages {
+        font-size: 1rem;
+      }
+
+      // Toggle read button styling:
+      .btn-read {
+        background-color: #72fd6e; // light green
+        border: 2px solid #72fd6e;
+        color: #222;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      
+        &:hover {
+          background-color: darken(#72fd6e, 10%);
+          border: 2px solid darken(#72fd6e, 10%);
+        }
+      }
+      
+     
+      .btn-not-read {
+        background-color: #d3d3d3; 
+        border: 1px solid #d3d3d3;
+        color: #222;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      
+        &:hover {
+          background-color: darken(#d3d3d3, 10%);
+          border: 1px solid darken(#d3d3d3, 10%);
+        }
+      }
+
+      .remove-book {
+        background-color: #ff6969; 
+        border: 2px solid #ff6969;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      
+        &:hover {
+          background-color: darken(#ff6969, 10%);
+          border: 2px solid darken(#ff6969, 10%);
+        }
+      }
+    }
+  }
+}
