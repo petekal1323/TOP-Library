@@ -183,4 +183,18 @@ header h1 {
   border: 2px solid #ff3636;
 }
 
+@media only screen and (max-width: 1150px) {
+  .main_container .book-container {
+    grid-template-columns: 1fr 1fr !important;
+    grid-gap: 20px !important;
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main_container .book-container {
+    grid-template-columns: 1fr !important;
+    grid-gap: 10px !important;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
